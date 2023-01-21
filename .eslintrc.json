@@ -1,17 +1,11 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
+        "project": ["tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
@@ -21,12 +15,14 @@
         "airbnb-base",
         "airbnb-typescript/base"
       ],
+      "plugins": ["prettier", "no-comments"],
       "rules": {
+        // @angular-eslint
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "cg",
             "style": "camelCase"
           }
         ],
@@ -34,10 +30,12 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": "cg",
             "style": "kebab-case"
           }
         ],
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/component-class-suffix": "off",
         "@typescript-eslint/no-unused-vars": [
           "warn",
           {
@@ -46,24 +44,46 @@
             "caughtErrorsIgnorePattern": "^_"
           }
         ],
-        "import/prefer-default-export": "off",
-        "spaced-comment": "off",
+
+        // typescript-eslint
+        "@typescript-eslint/comma-dangle": [
+          "error",
+          {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "never"
+          }
+        ],
         "@typescript-eslint/lines-between-class-members": "off",
+
+        // no-comments
+        "no-comments/disallowComments": [
+          "warn",
+          {
+            "allow": ["TODO", "FIXME", "NOTE", "DEBUG"]
+          }
+        ],
+
+        // prettier
+        "prettier/prettier": ["error", { "endOfLine": "auto" }],
+
+        // import
+        "import/prefer-default-export": "off",
+
+        // eslint
+        "max-len": ["error", { "code": 120 }],
+        "operator-linebreak": ["error", "after"],
+        "spaced-comment": "off",
         "object-curly-newline": "off",
-        "@angular-eslint/no-input-rename": "off",
-        "max-len": "off",
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-        "@angular-eslint/component-class-suffix": "off",
         "class-methods-use-this": "off"
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
     }
   ]
