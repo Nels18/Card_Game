@@ -49,6 +49,7 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.4",
+    "eslint-plugin-no-comments": "^1.1.10",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "inquirer": "^8.2.5",
