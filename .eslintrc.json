@@ -1,17 +1,11 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
+        "project": ["tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
@@ -21,6 +15,7 @@
         "airbnb-base",
         "airbnb-typescript/base"
       ],
+      "plugins": ["prettier"],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -46,24 +41,32 @@
             "caughtErrorsIgnorePattern": "^_"
           }
         ],
+        "max-len": ["error", { "code": 120 }],
+        "operator-linebreak": ["error", "after"],
+        "@typescript-eslint/comma-dangle": [
+          "error",
+          {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "never"
+          }
+        ],
+        "prettier/prettier": ["error", { "endOfLine": "auto" }],
         "import/prefer-default-export": "off",
         "spaced-comment": "off",
         "@typescript-eslint/lines-between-class-members": "off",
         "object-curly-newline": "off",
         "@angular-eslint/no-input-rename": "off",
-        "max-len": "off",
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
         "@angular-eslint/component-class-suffix": "off",
         "class-methods-use-this": "off"
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
     }
   ]

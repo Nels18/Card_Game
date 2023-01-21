@@ -7,16 +7,11 @@ import { CARD_IMG } from '../../constants/card.constant';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input()
-  id: string | undefined;
-  @Input()
-  rank: string = '';
-  @Input()
-  suit: string = '';
-  @Input()
-  value: number | undefined;
-  @Input()
-  image: string | undefined;
+  @Input() id: string | undefined;
+  @Input() rank: string = '';
+  @Input() suit: string = '';
+  @Input() value: number | undefined;
+  @Input() image: string | undefined;
 
   ngOnInit(): void {
     if (this.id) {
